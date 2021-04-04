@@ -1,0 +1,479 @@
+import javafx.application.Application;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.scene.text.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView; 
+
+
+public class MainPage extends Application {
+	
+	final static String passcode = "abc1234";
+	
+	public static void main(String[] args) {
+        launch(args);
+    }
+	
+	 @Override
+	    public void start(Stage primaryStage){
+		 
+		 GridPane grid1 = new GridPane();
+		 GridPane gridBook1 = new GridPane();
+		 GridPane gridBook2 = new GridPane();
+		 GridPane gridBook3 = new GridPane();
+		 GridPane gridBook4 = new GridPane();
+		 GridPane gridBook5 = new GridPane();
+		 
+		 grid1.setAlignment(Pos.CENTER);
+	     grid1.setHgap(10);
+	     grid1.setVgap(10);
+	     grid1.setPadding(new Insets(25, 25, 25, 25));
+	   
+	     //for gridBook1
+	     	gridBook1.setAlignment(Pos.CENTER);
+		 	gridBook1.setHgap(10);
+		 	gridBook1.setVgap(10);
+		 	gridBook1.setPadding(new Insets(25, 25, 25, 25));
+			
+		 	Image imageBook1 = new Image("pic1.jpg");
+		 	ImageView imgBook1 = new ImageView(imageBook1);
+		 	imgBook1.setFitHeight(200);
+		 	imgBook1.setFitWidth(150);
+		 	GridPane.setHalignment(imgBook1, HPos.CENTER);
+		 	gridBook1.add(imgBook1, 0, 0);
+		
+		 	//title
+		 	Label titleBook1 = new Label("Title: Nineteen Eighty-Four");
+		 	GridPane.setHalignment(titleBook1, HPos.CENTER);
+		 	gridBook1.add(titleBook1, 0, 1);
+			
+		 	//author
+		 	Label authorBook1 = new Label("Author: George Orwell");
+		 	GridPane.setHalignment(authorBook1, HPos.CENTER);
+		 	gridBook1.add(authorBook1, 0, 2);
+		
+		 	//language
+		 	Label langBook1 = new Label("Language: English");
+		 	GridPane.setHalignment(langBook1, HPos.CENTER);
+		 	gridBook1.add(langBook1, 0, 3);
+		
+		 	//genre
+		 	Label genreBook1 = new Label ("Genre: Political Fiction");
+		 	GridPane.setHalignment(genreBook1, HPos.CENTER);
+		 	gridBook1.add(genreBook1, 0, 4);
+		
+		 	//publisher
+		 	Label publisherBook1 = new Label ("Publisher: Secker & Warbug");
+		 	GridPane.setHalignment(publisherBook1, HPos.CENTER);
+		 	gridBook1.add(publisherBook1, 0, 5);
+		
+		 	//buy
+		 	Text instructionBook1 = new Text("Please enter the code that we have sent to you");
+		 	instructionBook1.setFont(Font.font ("Verdana"));
+		 	GridPane.setHalignment(instructionBook1, HPos.CENTER);
+		 	gridBook1.add(instructionBook1, 0, 7);
+		 	PasswordField pfBook1 = new PasswordField();
+		 	pfBook1.setMinSize(50, 25);
+		 	GridPane.setHalignment(pfBook1, HPos.CENTER);
+		 	gridBook1.add(pfBook1, 0, 8);
+		 	Button buyBook1 = new Button("BUY");
+		 	GridPane.setHalignment(buyBook1, HPos.CENTER);
+		 	gridBook1.add(buyBook1, 0, 9);
+	    
+		 	//comment
+			Text successBook1 = new Text("Thank You. Your download will begin shortly");
+			successBook1.setFont(Font.font ("Verdana"));
+			Text wrongBook1 = new Text("The password is incorrect. Please try again");
+			wrongBook1.setFont(Font.font ("Verdana"));
+			
+			buyBook1.setOnAction(e->{
+				if(pfBook1.getText().equals(passcode)) {
+					gridBook1.add(successBook1, 0, 10);
+					gridBook1.getChildren().remove(wrongBook1);
+				}
+				else
+				{
+					gridBook1.add(wrongBook1, 0, 10);
+					gridBook1.getChildren().remove(successBook1);
+				}
+			});
+		 	
+			Scene book1Scene = new Scene(gridBook1,500,500);
+		 
+		//for gridBook2
+		 	gridBook2.setAlignment(Pos.CENTER);
+		    gridBook2.setHgap(10);
+		    gridBook2.setVgap(10);
+		    gridBook2.setPadding(new Insets(25, 25, 25, 25));
+			
+			Image imageBook2 = new Image("pic2.jpg");
+			ImageView imgBook2 = new ImageView(imageBook2);
+			imgBook2.setFitHeight(200);
+			imgBook2.setFitWidth(150);
+			GridPane.setHalignment(imgBook2, HPos.CENTER);
+			gridBook2.add(imgBook2, 0, 0);
+			
+			//title
+			Label titleBook2 = new Label("Title: The Ambassadors");
+			GridPane.setHalignment(titleBook2, HPos.CENTER);
+			gridBook2.add(titleBook2, 0, 1);
+			
+			//author
+			Label authorBook2 = new Label("Author: Henry James");
+			GridPane.setHalignment(authorBook2, HPos.CENTER);
+			gridBook2.add(authorBook2, 0, 2);
+			
+			//language
+			Label langBook2 = new Label("Language: English");
+			GridPane.setHalignment(langBook2, HPos.CENTER);
+			gridBook2.add(langBook2, 0, 3);
+			
+			//genre
+			Label genreBook2 = new Label ("Genre: Dark Comedy");
+			GridPane.setHalignment(genreBook2, HPos.CENTER);
+			gridBook2.add(genreBook2, 0, 4);
+			
+			//publisher
+			Label publisherBook2 = new Label ("Publisher: Harper & Brothers");
+			GridPane.setHalignment(publisherBook2, HPos.CENTER);
+			gridBook2.add(publisherBook2, 0, 5);
+			
+			//buy
+			Text instructionBook2 = new Text("Please enter the code that we have sent to you");
+			instructionBook2.setFont(Font.font ("Verdana"));
+			GridPane.setHalignment(instructionBook1, HPos.CENTER);
+			gridBook2.add(instructionBook2, 0, 7);
+			PasswordField pfBook2 = new PasswordField();
+			pfBook2.setMinSize(50, 25);
+			GridPane.setHalignment(pfBook2, HPos.CENTER);
+			gridBook2.add(pfBook2, 0, 8);
+			Button buyBook2 = new Button("BUY");
+			GridPane.setHalignment(buyBook2, HPos.CENTER);
+			gridBook2.add(buyBook2, 0, 9);
+			
+			//comment
+			Text successBook2 = new Text("Thank You. Your download will begin shortly");
+			successBook2.setFont(Font.font ("Verdana"));
+			Text wrongBook2 = new Text("The password is incorrect. Please try again");
+			wrongBook2.setFont(Font.font ("Verdana"));
+			
+			buyBook2.setOnAction(e->{
+				if(pfBook2.getText().equals(passcode)) {
+					gridBook2.add(successBook2, 0, 10);
+					gridBook2.getChildren().remove(wrongBook2);
+				}
+				else
+				{
+					gridBook2.add(wrongBook2, 0, 10);
+					gridBook2.getChildren().remove(successBook2);
+				}
+			});
+			
+			Scene book2Scene = new Scene(gridBook2,500,500);
+			
+		//for gridBook3
+	     	gridBook3.setAlignment(Pos.CENTER);
+		 	gridBook3.setHgap(10);
+		 	gridBook3.setVgap(10);
+		 	gridBook3.setPadding(new Insets(25, 25, 25, 25));
+			
+		 	Image imageBook3 = new Image("pic3.jpg");
+		 	ImageView imgBook3 = new ImageView(imageBook3);
+		 	imgBook3.setFitHeight(200);
+		 	imgBook3.setFitWidth(150);
+		 	GridPane.setHalignment(imgBook3, HPos.CENTER);
+		 	gridBook3.add(imgBook3, 0, 0);
+		
+		 	//title
+		 	Label titleBook3 = new Label("Title: An American Tragedy");
+		 	GridPane.setHalignment(titleBook3, HPos.CENTER);
+		 	gridBook3.add(titleBook3, 0, 1);
+			
+		 	//author
+		 	Label authorBook3 = new Label("Author: Theodore Dreiser");
+		 	GridPane.setHalignment(authorBook3, HPos.CENTER);
+		 	gridBook3.add(authorBook3, 0, 2);
+		
+		 	//language
+		 	Label langBook3 = new Label("Language: English");
+		 	GridPane.setHalignment(langBook3, HPos.CENTER);
+		 	gridBook3.add(langBook3, 0, 3);
+		
+		 	//genre
+		 	Label genreBook3 = new Label ("Genre: Crime Fiction");
+		 	GridPane.setHalignment(genreBook3, HPos.CENTER);
+		 	gridBook3.add(genreBook3, 0, 4);
+		
+		 	//publisher
+		 	Label publisherBook3 = new Label ("Publisher: Boni & Liverlight");
+		 	GridPane.setHalignment(publisherBook3, HPos.CENTER);
+		 	gridBook3.add(publisherBook3, 0, 5);
+		
+		 	//buy
+		 	Text instructionBook3 = new Text("Please enter the code that we have sent to you");
+		 	instructionBook3.setFont(Font.font ("Verdana"));
+		 	GridPane.setHalignment(instructionBook3, HPos.CENTER);
+		 	gridBook3.add(instructionBook3, 0, 7);
+		 	PasswordField pfBook3 = new PasswordField();
+		 	pfBook3.setMinSize(50, 25);
+		 	GridPane.setHalignment(pfBook3, HPos.CENTER);
+		 	gridBook3.add(pfBook3, 0, 8);
+		 	Button buyBook3 = new Button("BUY");
+		 	GridPane.setHalignment(buyBook3, HPos.CENTER);
+		 	gridBook3.add(buyBook3, 0, 9);
+		 	
+		 	//comment
+			Text successBook3 = new Text("Thank You. Your download will begin shortly");
+			successBook3.setFont(Font.font ("Verdana"));
+			Text wrongBook3 = new Text("The password is incorrect. Please try again");
+			wrongBook3.setFont(Font.font ("Verdana"));
+			
+			buyBook3.setOnAction(e->{
+				if(pfBook3.getText().equals(passcode)) {
+					gridBook3.add(successBook3, 0, 10);
+					gridBook3.getChildren().remove(wrongBook3);
+				}
+				else
+				{
+					gridBook3.add(wrongBook3, 0, 10);
+					gridBook3.getChildren().remove(successBook3);
+				}
+			});
+		 	
+			Scene book3Scene = new Scene(gridBook3,500,500);
+			
+		//for gridBook4
+			gridBook4.setAlignment(Pos.CENTER);
+		    gridBook4.setHgap(10);
+		    gridBook4.setVgap(10);
+		    gridBook4.setPadding(new Insets(25, 25, 25, 25));
+			
+			Image imageBook4 = new Image("pic4.jpg");
+			ImageView imgBook4 = new ImageView(imageBook4);
+			imgBook4.setFitHeight(200);
+			imgBook4.setFitWidth(150);
+			GridPane.setHalignment(imgBook4, HPos.CENTER);
+			gridBook4.add(imgBook4, 0, 0);
+			
+			//title
+			Label titleBook4 = new Label("Title: Brave New World");
+			GridPane.setHalignment(titleBook4, HPos.CENTER);
+			gridBook4.add(titleBook4, 0, 1);
+			
+			//author
+			Label authorBook4 = new Label("Author: Aldous Huxley");
+			GridPane.setHalignment(authorBook4, HPos.CENTER);
+			gridBook4.add(authorBook4, 0, 2);
+			
+			//language
+			Label langBook4 = new Label("Language: English");
+			GridPane.setHalignment(langBook4, HPos.CENTER);
+			gridBook4.add(langBook4, 0, 3);
+			
+			//genre
+			Label genreBook4 = new Label ("Genre: Science Fiction");
+			GridPane.setHalignment(genreBook4, HPos.CENTER);
+			gridBook4.add(genreBook4, 0, 4);
+			
+			//publisher
+			Label publisherBook4 = new Label ("Publisher: Chatto & Windus");
+			GridPane.setHalignment(publisherBook4, HPos.CENTER);
+			gridBook4.add(publisherBook4, 0, 5);
+			
+			//buy
+			Text instructionBook4 = new Text("Please enter the code that we have sent to you");
+			instructionBook4.setFont(Font.font ("Verdana"));
+			GridPane.setHalignment(instructionBook4, HPos.CENTER);
+			gridBook4.add(instructionBook4, 0, 7);
+			PasswordField pfBook4 = new PasswordField();
+			pfBook4.setMinSize(50, 25);
+			GridPane.setHalignment(pfBook4, HPos.CENTER);
+			gridBook4.add(pfBook4, 0, 8);
+			Button buyBook4 = new Button("BUY");
+			buyBook4.setMinSize(50, 30);
+			GridPane.setHalignment(buyBook4, HPos.CENTER);
+			gridBook4.add(buyBook4, 0, 9);
+			
+			//comment
+			Text successBook4 = new Text("Thank You. Your download will begin shortly");
+			successBook4.setFont(Font.font ("Verdana"));
+			Text wrongBook4 = new Text("The password is incorrect. Please try again");
+			wrongBook4.setFont(Font.font ("Verdana"));
+			
+			buyBook4.setOnAction(e->{
+				if(pfBook4.getText().equals(passcode)) {
+					gridBook4.add(successBook4, 0, 10);
+					gridBook4.getChildren().remove(wrongBook4);
+				}
+				else
+				{
+					gridBook4.add(wrongBook4, 0, 10);
+					gridBook4.getChildren().remove(successBook4);
+				}
+			});
+			
+			Scene book4Scene = new Scene(gridBook4,500,500);
+			
+		//for gridBook5
+			gridBook5.setAlignment(Pos.CENTER);
+		    gridBook5.setHgap(10);
+		    gridBook5.setVgap(10);
+		    gridBook5.setPadding(new Insets(25, 25, 25, 25));
+			
+			Image imageBook5 = new Image("pic5.jpg");
+			ImageView imgBook5 = new ImageView(imageBook5);
+			imgBook5.setFitHeight(200);
+			imgBook5.setFitWidth(150);
+			GridPane.setHalignment(imgBook5, HPos.CENTER);
+			gridBook5.add(imgBook5, 0, 0);
+			
+			//title
+			Label titleBook5 = new Label("Title: Catch-22");
+			GridPane.setHalignment(titleBook5, HPos.CENTER);
+			gridBook5.add(titleBook5, 0, 1);
+			
+			//author
+			Label authorBook5 = new Label("Author: Joseph Heller");
+			GridPane.setHalignment(authorBook5, HPos.CENTER);
+			gridBook5.add(authorBook5, 0, 2);
+			
+			//language
+			Label langBook5 = new Label("Language: English");
+			GridPane.setHalignment(langBook5, HPos.CENTER);
+			gridBook5.add(langBook5, 0, 3);
+			
+			//genre
+			Label genreBook5 = new Label ("Genre: Black Comedy");
+			GridPane.setHalignment(genreBook5, HPos.CENTER);
+			gridBook5.add(genreBook5, 0, 4);
+			
+			//publisher
+			Label publisherBook5 = new Label ("Publisher: Simon & Schuster");
+			GridPane.setHalignment(publisherBook5, HPos.CENTER);
+			gridBook5.add(publisherBook5, 0, 5);
+			
+			//buy
+			Text instructionBook5 = new Text("Please enter the code that we have sent to you");
+			instructionBook5.setFont(Font.font ("Verdana"));
+			GridPane.setHalignment(instructionBook5, HPos.CENTER);
+			gridBook5.add(instructionBook5, 0, 7);
+			PasswordField pfBook5 = new PasswordField();
+			pfBook5.setMinSize(50, 25);
+			GridPane.setHalignment(pfBook5, HPos.CENTER);
+			gridBook5.add(pfBook5, 0, 8);
+			Button buyBook5 = new Button("BUY");
+			buyBook5.setMinSize(50, 30);
+			GridPane.setHalignment(buyBook5, HPos.CENTER);
+			gridBook5.add(buyBook5, 0, 9);
+			
+			//comment
+			Text successBook5 = new Text("Thank You. Your download will begin shortly");
+			successBook5.setFont(Font.font ("Verdana"));
+			Text wrongBook5 = new Text("The password is incorrect. Please try again");
+			wrongBook5.setFont(Font.font ("Verdana"));
+			
+			buyBook5.setOnAction(e->{
+				if(pfBook5.getText().equals(passcode)) {
+					gridBook5.add(successBook5, 0, 10);
+					gridBook5.getChildren().remove(wrongBook5);
+				}
+				else
+				{
+					gridBook5.add(wrongBook5, 0, 10);
+					gridBook5.getChildren().remove(successBook5);
+				}
+			});
+			
+			Scene book5Scene = new Scene(gridBook5,500,500);
+			
+	   //for grid1 
+	     //instruction
+	    Text instruction1 = new Text();
+	    instruction1.setText("Please select a book that you want to buy");
+	    grid1.add(instruction1, 0, 0);
+	    
+	    Label title = new Label("Title");
+	    title.setFont(Font.font ("Verdana", 20));
+	   // title.setFill(Color.RED);
+	    GridPane.setHalignment(title, HPos.LEFT);
+	    grid1.add(title, 0, 2);
+	    
+	    Label price = new Label("Price (RM)");
+	    price.setFont(Font.font ("Verdana", 20));
+	    GridPane.setHalignment(price, HPos.CENTER);
+	    grid1.add(price, 1, 2);
+	    
+	    //book1
+	    Label book1 = new Label("Nineteen Eighty-Four");
+	    GridPane.setHalignment(book1, HPos.LEFT);
+	    grid1.add(book1, 0, 3);
+	    Label price1 = new Label("20.00");
+	    GridPane.setHalignment(price1, HPos.LEFT);
+	    grid1.add(price1, 1, 3);
+	    Button buy1 = new Button("BUY");
+	    buy1.setMinSize(80, 30);
+	    grid1.add(buy1, 2, 3);
+	    buy1.setOnAction(e -> primaryStage.setScene(book1Scene));
+	    	    
+	    //book2
+	    Label book2 = new Label("The Ambassadors");
+	    GridPane.setHalignment(book2, HPos.LEFT);
+	    grid1.add(book2, 0, 4);
+	    Label price2 = new Label("20.00");
+	    GridPane.setHalignment(price2, HPos.LEFT);
+	    grid1.add(price2, 1, 4);
+	    Button buy2 = new Button("BUY");
+	    buy2.setMinSize(80, 30);
+	    grid1.add(buy2, 2, 4);
+	    buy2.setOnAction(e -> primaryStage.setScene(book2Scene));
+	 
+	    //book3
+	    Label book3 = new Label("The American Tragedy");
+	    GridPane.setHalignment(book3, HPos.LEFT);
+	    grid1.add(book3, 0, 5);
+	    Label price3 = new Label("35.00");
+	    GridPane.setHalignment(price3, HPos.LEFT);
+	    grid1.add(price3, 1, 5);
+	    Button buy3 = new Button("BUY");
+	    buy3.setMinSize(80, 30);
+	    grid1.add(buy3, 2, 5);
+	    buy3.setOnAction(e -> primaryStage.setScene(book3Scene));
+	    
+	  //book4
+	    Label book4 = new Label("Brave New World");
+	    GridPane.setHalignment(book4, HPos.LEFT);
+	    grid1.add(book4, 0, 6);
+	    Label price4 = new Label("15.00");
+	    GridPane.setHalignment(price4, HPos.LEFT);
+	    grid1.add(price4, 1, 6);
+	    Button buy4 = new Button("BUY");
+	    buy4.setMinSize(80, 30);
+	    grid1.add(buy4, 2, 6);
+	    buy4.setOnAction(e -> primaryStage.setScene(book4Scene));
+	    
+	  //book5
+	    Label book5 = new Label("Catch-22");
+	    GridPane.setHalignment(book5, HPos.LEFT);
+	    grid1.add(book5, 0, 7);
+	    Label price5 = new Label("25.00");
+	    GridPane.setHalignment(price5, HPos.LEFT);
+	    grid1.add(price5, 1, 7);
+	    Button buy5 = new Button("BUY");
+	    buy5.setMinSize(80, 30);
+	    grid1.add(buy5, 2, 7);
+	    buy5.setOnAction(e -> primaryStage.setScene(book5Scene));
+	    
+	    Scene catalogScene = new Scene(grid1, 500,400);
+	    primaryStage.setScene(catalogScene);
+        primaryStage.setTitle("E-Book Shopping System");
+        primaryStage.show();
+	 }
+	 
+}
